@@ -19,7 +19,8 @@ permutation_plot <- function(
 	sc_utils_obj,
 	FDR_threshold = 0.05,
 	log2FD_threshold = log2(1.5),
-	order_clusters = TRUE
+	order_clusters = TRUE,
+	font_size = 16  # Default font size; can be adjusted by the user
 ) {
 
 	## Retrieve results.
@@ -45,7 +46,7 @@ permutation_plot <- function(
 	## Plot the results.
 	p <- ggplot(plot_data, aes(x = clusters, y = obs_log2FD)) +
 		geom_pointrange(aes(ymin = boot_CI_2.5, ymax = boot_CI_97.5, color = significance)) +
-		theme_bw(base_size = 16) +
+		theme_bw(base_size = font_size) +
 	  theme(text = element_text(face = "bold")) +
 		geom_hline(yintercept = log2FD_threshold, lty = 2) +
 		geom_hline(yintercept = -log2FD_threshold, lty = 2) +
