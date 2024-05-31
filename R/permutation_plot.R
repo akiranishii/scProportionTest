@@ -45,11 +45,12 @@ permutation_plot <- function(
 	## Plot the results.
 	p <- ggplot(plot_data, aes(x = clusters, y = obs_log2FD)) +
 		geom_pointrange(aes(ymin = boot_CI_2.5, ymax = boot_CI_97.5, color = significance)) +
-		theme_bw() +
+		theme_bw(base_size = 16) +
+	  theme(text = element_text(face = "bold")) +
 		geom_hline(yintercept = log2FD_threshold, lty = 2) +
 		geom_hline(yintercept = -log2FD_threshold, lty = 2) +
 		geom_hline(yintercept = 0) +
-		scale_color_manual(values = c("salmon", "grey")) +
+		scale_color_manual(values = c("black", "grey")) +
 		coord_flip()
 
 	return(p)
