@@ -13,7 +13,7 @@ are working with an AnnData object you may consider the
 Use devtools to install the R library.
 
 ```
-devtools::install_github("rpolicastro/scProportionTest")
+devtools::install_github("akiranishii/scProportionTest")
 ```
 
 ## Getting Started
@@ -26,7 +26,7 @@ Once you have a seurat object, you are ready to get started.
 We'll first load some example data for the vignette, and create the analysis object.
 
 ```
-library("scProportionTest")
+library("scProportionTestEnhanced")
 
 seurat_data <- system.file("extdata", "example_data.RDS", package = "scProportionTest")
 seurat_data <- readRDS(seurat_data)
@@ -47,7 +47,7 @@ prop_test <- permutation_test(
 A point-range plot of the results can then be created.
 
 ```
-permutation_plot(prop_test)
+permutation_plot(prop_test, log2FD_threshold = log2(1.5), font_size = 20)
 ```
 
 ![example_plot](inst/images/example_plot.png)
